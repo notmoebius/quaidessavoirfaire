@@ -1,9 +1,14 @@
+stages:
+  - deploy
 
-script:
-	- ssh root@svps573722.ovh.net "
-	  cd /var/www/ &&
-		cd quaidessavoirfaire &&
-		git checkout . &&
-		git checkout master &&
-		git pull &&
-    "
+deploy-master:
+  stage: deploy
+
+  script:
+    - ssh root@svps573722.ovh.net "
+      cd /var/www/ &&
+      cd quaidessavoirfaire &&
+      git checkout . &&
+      git checkout master &&
+      git pull &&
+      "
